@@ -1,0 +1,35 @@
+    .smart-content-planning .tag::before {
+        content: attr(data-title);
+        font-size: 12px;
+        font-weight: 800;
+        color: #6e8a98;
+        background-color: #fff59f;
+        padding: 4px;
+        letter-spacing: 1px;
+    }
+    
+    .smart-content-planning .main {
+        /* min-height: 200px; */
+        padding: 24px;
+    }
+    
+    .smart-content-planning .topic {
+        outline: none;
+        padding: 8px;
+        margin: 20px;
+        font-size: 14px;
+        background-color: #eee;
+        min-width: 44px;
+        cursor: text;
+    }
+    
+    .smart-content-planning .topic[place-holder]:empty::before {
+        content: attr(place-holder);
+        color: #707684;
+        font-weight: normal;
+        opacity: 1;
+    }
+    
+    .smart-content-planning .topic[contentEditable=true][place-holder]:focus::before {
+        opacity: 0 !important;
+    }
