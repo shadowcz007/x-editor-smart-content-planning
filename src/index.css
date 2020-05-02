@@ -38,6 +38,11 @@
         width: 100%;
     }
     
+    .smart-content-planning .nsg-tags {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
     .smart-content-planning .nsg-tag {
         padding: 8px;
         margin: 12px;
