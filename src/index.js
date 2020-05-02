@@ -4,6 +4,8 @@
 require('./index.css').toString();
 
 const insignia = require("insignia/dist/insignia");
+const Tagify = require("@yaireo/tagify");
+
 
 const title = "内容规划";
 
@@ -11,6 +13,10 @@ class SmartContentPlanning {
 
     static get title() {
         return title;
+    }
+
+    static get enableLineBreaks() {
+        return true;
     }
 
     static get toolbox() {
@@ -33,6 +39,10 @@ class SmartContentPlanning {
             renderSettings: document.createElement('div')
         };
 
+        this.index = this.api.blocks.getCurrentBlockIndex() + 1;
+
+        this.tags = null;
+        this.input = null;
         // this.settings = [{
         //     name: '图片描述',
         //     icon: require('./../assets/image.svg').default,
@@ -67,28 +77,25 @@ class SmartContentPlanning {
     }
 
     render() {
-
         this.wrapper.block = this._createBlock();
-
         this._loading();
-        let main = this._getMain();
+        this._finish();
+        setTimeout(() => {
+            this.api.blocks.insertNewBlock();
+        }, 500);
+        return this.wrapper.block;
+    }
 
-        const topics = insignia(main);
-        topics.on('add', data => console.log(data)); // listen to an event
-        topics.once('invalid', data => {
-            throw new Error('invalid data');
-        }); // listener discarded after one execution
-
-        topics.on('add', added);
-        topics.off('add', added); // removes `added` listener
-
-        function added(data) {
-            console.log(data);
+    _getRandomColor() {
+        var rand = function(min, max) {
+            return min + Math.random() * (max - min);
         }
 
-        this._finish();
+        var h = rand(1, 360) | 0,
+            s = rand(40, 70) | 0,
+            l = rand(65, 72) | 0;
 
-        return this.wrapper.block;
+        return 'hsl(' + h + ',' + s + '%,' + l + '%)';
     }
 
     renderSettings() {
@@ -140,6 +147,22 @@ class SmartContentPlanning {
         let div = document.createElement("div");
         div.classList.add(this.CSS.main);
         block.appendChild(div);
+
+        this.input = document.createElement('input');
+        div.appendChild(this.input);
+        this.tags = insignia(this.input);
+        this.api.listeners.on(this.input, "keypress", (e) => {
+            if (e.keyCode === 13) {
+                e.preventDefault(); // prevent form submission
+                e.stopPropagation();
+                //console.log(this.tags.allValues())
+                if (this.input.value.trim()) {
+                    this.tags.addItem(this.input.value.trim());
+                    this.input.value = "";
+                };
+            }
+        });
+
         return block;
     }
 

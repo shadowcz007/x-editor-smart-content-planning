@@ -33,3 +33,27 @@
     .smart-content-planning .topic[contentEditable=true][place-holder]:focus::before {
         opacity: 0 !important;
     }
+    
+    .smart-content-planning .main {
+        width: 100%;
+    }
+    
+    .smart-content-planning .nsg-tag {
+        padding: 8px;
+        margin: 12px;
+        font-size: 14px;
+        background-color: yellow;
+        font-weight: 300;
+        letter-spacing: 2px;
+    }
+    
+    .smart-content-planning .nsg-input {
+        padding: 8px;
+        margin: 12px;
+        font-size: 14px;
+        background-color: yellow;
+        font-weight: 300;
+        letter-spacing: 2px;
+        border: none;
+        outline: none;
+    }

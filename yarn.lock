@@ -873,6 +873,11 @@
   resolved "https://registry.npm.taobao.org/@xtuc/long/download/@xtuc/long-4.2.2.tgz#d291c6a4e97989b5c61d9acf396ae4fe133a718d"
   integrity sha1-0pHGpOl5ibXGHZrPOWrk/hM6cY0=
 
+"@yaireo/tagify@^3.7.3":
+  version "3.7.3"
+  resolved "https://registry.npm.taobao.org/@yaireo/tagify/download/@yaireo/tagify-3.7.3.tgz#beb15e7368a5579b8ec42242b5940680a29c0bfe"
+  integrity sha1-vrFec2ilV5uOxCJCtZQGgKKcC/4=
+
 acorn@^6.2.1:
   version "6.4.1"
   resolved "https://registry.npm.taobao.org/acorn/download/acorn-6.4.1.tgz?cache=0&sync_timestamp=1583796606796&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Facorn%2Fdownload%2Facorn-6.4.1.tgz#531e58ba3f51b9dacb9a6646ca4debf5b14ca474"
