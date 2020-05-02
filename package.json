@@ -34,7 +34,6 @@
         "webpack-cli": "^3.2.3"
     },
     "dependencies": {
-        "@yaireo/tagify": "^3.7.3",
         "insignia": "^5.0.0"
     }
 }
